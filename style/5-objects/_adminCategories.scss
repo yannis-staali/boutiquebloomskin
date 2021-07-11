@@ -1,0 +1,24 @@
+.main_categories {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    
+}
+.main_container_categories {
+    margin-top:2em;
+    overflow-x:auto;
+}
+.categories_form {
+    margin-top:1em;
+}
+.form_categories td{
+    border: 2px solid $color2;
+}
+.form_categories {
+    border-collapse: collapse;
+}
+.containe_update {
+    background-color: $color2;
+    overflow-x:auto;
+}

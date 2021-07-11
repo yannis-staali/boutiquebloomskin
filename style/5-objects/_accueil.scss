@@ -1,0 +1,113 @@
+.accueil_container_general{
+    min-height: 100vh;
+    // background-color: cornsilk;
+    margin-top: 0;
+   
+}
+.accueil_main{
+    // position: relative;
+    // background-color: rgb(198, 183, 123);
+//    margin-bottom: 10em;
+background-image: url("images/bloomhome.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+min-height: 100vh;
+ height: 100vh;
+
+     @media screen and (max-width: 900px) {
+         min-height: 90vh;
+     }
+     @media screen and (min-width: 900px) {
+         min-height: 90vh;
+        //  margin-bottom: 10em;
+        //  background-color: yellow;
+     }
+     min-height: 80vh;
+   
+    // background-color: sandybrown;
+    display: flex;
+  
+    // flex-direction: column;
+
+    // .accueil_text{
+    //     margin: 0 auto;
+    //     text-align: center;
+
+    //     p {
+    //         font-size: 1.5rem;
+    //     }
+
+    //     h1 {
+    //         font-size: 2.8rem;
+    //         margin-top: 0;
+    //         margin-bottom: 0;
+    //         // text-shadow: 0.1em 0.1em 0.8em #000000ae;
+
+    //     }
+    // }
+    // .accueil_image{
+    //     max-width: 100%;
+    //     max-width: 600px;
+    //     margin: 0 auto;
+       
+        
+    //     img {
+    //         margin-bottom: 0;
+    //     }
+    // }
+
+    // .accueil_boutton{
+    //     // background-color: yellow;
+
+    //     a {
+    //         display: block;
+    //         color: white;
+            
+    //         margin: 0 auto;
+    //         text-align: center;
+    //         background-color: black;
+    //         padding-top: 0.5em;
+    //         padding-bottom: 0.5em;
+    //         padding-left: 4em;
+    //         padding-right: 4em;
+    //         border-radius: 20px;
+    //         width: fit-content;
+    //         box-shadow: 0.2em 0.2em 0.8em 0.2em #0000008b;
+
+    //         &:hover{
+    //             background-color: $colormain; 
+    //          //    border: 1px solid rgb(255, 57, 57);
+    //             // color: black;
+    //          }
+            
+    //     }
+
+       
+      
+    // }
+}
+
+.main_welcome{
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 3rem;
+    color: rgb(54, 53, 53);
+
+    a {
+        font-size: 1.5rem;
+        background-color: #ec6db3;
+        width: fit-content;
+        padding: 0.5em 1em;
+        border-radius: 20px;
+        box-shadow: 0 8px 6px -6px rgb(94, 94, 94);
+
+        &:hover {
+            background-color: white;
+        }
+    }
+
+}
+.accueil_button {
+
+}

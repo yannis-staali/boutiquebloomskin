@@ -1,0 +1,308 @@
+.produits_container_general {
+    margin-bottom: 10em;
+}
+
+.produits_container_main {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+    // background-color: cornsilk;
+}
+
+/* PARTIE FILTRES //////////*/
+.produits_filtres {
+    // background-color: rgb(252, 198, 137);
+    // border: 1px solid rgb(0, 0, 0);
+   
+    margin-bottom: 1rem;
+    // border: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+       align-items: center;
+    }
+
+    
+}
+// .produits_filtres_subcontainer {
+    
+   
+//     display: flex;
+//     flex-direction: row;
+//     // justify-content: center;
+//     border: 2px solid yellow;
+//     // width: 90%;
+//     // background-color: bisque;
+//     // margin-top: 1rem;
+
+//     // @media screen and (max-width: 600px) {
+//     //     flex-direction: column;
+//     //     align-items: center;
+    
+//     // }
+
+//     // h3 {
+//     //     font-size: 1.5rem;
+//     //     font-family: $mainFont;
+//     // }
+
+//     a {
+//         &:hover {
+//             color: $colormain;
+//         }
+//     }
+// }
+.produits_filtres--types {
+     box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+     border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    font-family: $mainFont;
+    background-color: white;
+    
+    position: relative;
+    z-index: 1000;
+     height: 50%;
+    padding: 0.5rem ;
+    min-width: 55px;
+  
+    p {
+         margin: 0;
+    }
+
+    &:hover {
+        background-color: $colormain;
+        
+    }
+    @media screen and (max-width: 480px) {
+        margin-bottom: 1rem;
+    //    width: 80%;
+        
+    }
+}
+
+.produits_filtres_types_dropdown {
+    display: none;
+    min-width: fit-content;
+    background-color: white;
+
+    a {
+        &:hover {
+            color: $colormain;
+        }
+    }
+}
+.produits_filtres_types_dropdown.active {
+    // display: block;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    border-radius: 10px;
+    
+}
+
+.produits_filtres--regions {
+    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    font-family: $mainFont;
+    
+    position: relative;
+    z-index: 10;
+    height: 50%;
+    padding: 0.5rem ;
+    min-width: 55px;
+    
+    margin-left: 1rem;
+
+    p {
+        margin: 0;
+   }
+
+   &:hover {
+       background-color: $colormain;
+       
+   }
+
+   @media screen and (max-width: 480px) {
+    margin-bottom: 1rem;
+    margin-left: 0;
+    //  width: 80%;
+}
+}
+.produits_filtres_regions_dropdown {
+    display: none;
+    background-color: white;
+    min-width: fit-content;
+   
+    a {
+        &:hover {
+            color: $colormain;
+        }
+    }
+}
+.produits_filtres_regions_dropdown.active {
+    // display: block;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    border-radius: 10px;
+    
+}
+.produits_filtres--supprimer {
+    margin-bottom: 1rem;
+    // border: 1px solid black;
+    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    border-radius: 10px;
+    margin-left: 1rem;
+    text-align: center;
+
+    padding: 0.5rem ;
+    min-width: 55px;
+    
+    &:hover {
+        background-color: $colormain;
+       
+    }
+    
+    @media screen and (max-width: 480px) {
+        // margin-bottom: 1rem;
+        margin-left: 0;
+        // width: 80%;
+        
+    }
+}
+
+.produits_liste {
+    // background-color: rgb(254, 149, 141);
+    margin-bottom: 3rem;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // justify-content: center;
+    justify-content: space-evenly;
+    // align-items: center;
+}
+.produits_article {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+    min-height: 650px;
+    max-height: 700px;
+    max-width: 400px;
+    // height: 660px;
+    // border: 5px solid rgb(0, 0, 0);
+    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+.produits_article_image {
+    // border: 3px solid yellow;
+    height: 60%;
+}
+.produits_image {
+    height: 100%;
+    width: 100%;
+    // max-height: 100%;
+    object-fit: cover;
+   
+    object-position: center;
+}
+.produits_article_contenu {
+    // border: 3px solid rgb(0, 38, 255);
+    height: 40%;
+    // padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+
+    h4 {
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        font-family: $mainFont;
+    }
+    p {
+        font-size: 1.2rem;
+        // margin: 0;
+    }
+}
+.produits_article_contenu_top {
+    // height: 50%;
+    max-height: 65%;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    // background-color: burlywood;
+
+}
+.produits_article_contenu_bottom {
+    height: 35%;
+    max-height: 35%;
+    // background-color: cadetblue;
+
+}
+.produits_article_cat {
+    text-align: right;
+    font-style: italic;
+    margin: 0;
+}
+.produits_article_region {
+    text-align: right;
+    margin: 0;
+}
+.produits_article_description {
+    max-width: 80%;
+    margin: 0;
+    padding-top: 0.2em;
+}
+.produits_article_prix {
+    text-align: center;
+    margin: 0;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    // background: chartreuse;
+}
+.produits_article_form {
+    // background: chocolate;
+    text-align: center;
+    margin-top: 0.5rem;
+
+    button {
+    background-color: black;
+    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+
+    color:white;
+    border: none;
+    border-radius: 1.5em;
+    // min-height: 35px;
+    font-family: $mainFont;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 1.4rem;
+
+    &:hover {
+        background-color: $colormain;
+        cursor: pointer;
+    }
+    }
+}
+.produits_article_button {
+   
+}

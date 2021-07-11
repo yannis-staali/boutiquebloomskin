@@ -1,0 +1,22 @@
+.title_admin_produit{
+    text-align:center;
+}
+.table_adminProduit {
+    border-collapse:collapse;
+    max-width: 900px;
+    margin: auto;
+}
+.table_adminProduit td {
+    border: 3px solid $color2;
+}
+.container_add_product {
+    border: 2px solid $color2;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form_add_product {
+    display: flex;
+    flex-direction: column;
+}

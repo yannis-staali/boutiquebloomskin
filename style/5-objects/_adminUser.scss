@@ -1,0 +1,24 @@
+.container_admin_user {
+    min-height:100vh;
+}
+
+.admin_user_inside {
+    border:2px solid black;
+    margin: auto;
+}
+.table_adminUser tr td{
+    border: solid 2px $color2;
+   
+}
+.table_adminUser {
+    border-collapse: collapse;
+    margin: auto;
+}
+/////////////////////////
+.container_user_update{
+    overflow-x:auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: $color2;
+}

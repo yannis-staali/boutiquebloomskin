@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+img{
+    object-fit:contain;
+    width: 100%;
+    max-width:100%;
+}
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: $mainFont;
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+h4 {
+    font-size: 1.5em;
+    margin: 0;
+}
+h1, h2{
+    font-size: 1.5em;
+    font-family: $mainFont;
+}
+p {
+    font-family: $mainFont;
+}
+li {
+   list-style-type: none;
+}
+button{
+    background-color: $color2;
+}
