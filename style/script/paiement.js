@@ -71,10 +71,10 @@ var nomClient = document.getElementById('cardholder-name').value;
                 var xhr = new XMLHttpRequest();
 
                 xhr.onload = function() {
-                    console.log(this.responseText);
+                    //console.log(this.responseText);
                    // console.log(result);
 
-                    //  window.location = "index.php?page=accueil";
+                    window.location = "index.php?page=accueil";
                 }
                 
                 xhr.open("POST", "Controleur/traitementpay.php", true);

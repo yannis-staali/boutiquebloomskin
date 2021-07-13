@@ -26,7 +26,7 @@ public function updateQuantite($quantite, $id_produit, $id_utilisateur, $update_
 }
 //SI UTILISATEUR A DEJA UN PANIER
 public function panierExist($id_utilisateur){
-    $stmt = $this->pdo->prepare("SELECT id_utilisateur, id_produit, quantite, prix FROM liste_commande WHERE id_utilisateur=:id_utilisateur");
+    $stmt = $this->pdo->prepare("SELECT id_utilisateur, id_produit, quantite, prix FROM liste_commande WHERE id_utilisateur=:id_utilisateur AND statut IS NULL");
     $stmt->execute(['id_utilisateur' => $id_utilisateur]);
     if($stmt->rowCount() > 0){
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -39,7 +39,8 @@ public function getPanier($id_utilisateur){
     $sql ="SELECT produits.id, produits.nom,liste_commande.prix,produits.image_url,liste_commande.quantite 
         FROM produits 
         INNER JOIN liste_commande ON produits.id = liste_commande.id_produit
-        WHERE id_utilisateur=:id_utilisateur";  
+        WHERE id_utilisateur=:id_utilisateur
+        AND liste_commande.statut IS NULL";  
     $stmt= $this->pdo->prepare($sql);
     $stmt->execute([
         'id_utilisateur' => $id_utilisateur
@@ -114,7 +115,7 @@ $stmt= $this->pdo->prepare($sql);
     }
     public function getTotal($id_utilisateur)
     {
-        $stmt = $this->pdo->prepare("SELECT prix FROM liste_commande WHERE id_utilisateur=:id_utilisateur");
+        $stmt = $this->pdo->prepare("SELECT prix FROM liste_commande WHERE id_utilisateur=:id_utilisateur AND statut IS NULL");
         $stmt->execute(['id_utilisateur' => $id_utilisateur]);
 
         $result = $stmt->fetchAll(PDO::FETCH_NUM);
@@ -142,4 +143,49 @@ $stmt= $this->pdo->prepare($sql);
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute(compact('id_produit','id_utilisateur','quantite','prix'));
     }
+
+    //recupère les id de commandes
+    public function recupIdCommandes($id_utilisateur){
+        $sql ="SELECT produits.nom, liste_commande.quantite, liste_commande.prix, liste_commande.id_produit, liste_commande.id_commande, utilisateurs.login  
+        FROM liste_commande
+        INNER JOIN utilisateurs
+        ON liste_commande.id_utilisateur = utilisateurs.id
+        INNER JOIN produits
+        ON produits.id = liste_commande.id_produit
+        WHERE id_commande IS NOT NULL
+        AND id_utilisateur = :id_utilisateur ";  
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id_utilisateur' => $id_utilisateur
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
+    public function listIdCommandes($id_utilisateur){
+        $sql ="SELECT id_commande 
+        FROM client_commande
+        WHERE id_utilisateur = :id_utilisateur";  
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id_utilisateur' => $id_utilisateur
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function historiqueCommandes($id_commande){
+        $sql ="SELECT produits.nom, liste_commande.quantite, liste_commande.prix, liste_commande.id_commande
+        FROM client_commande
+        INNER JOIN  liste_commande
+        ON client_commande.id_commande = liste_commande.id_commande
+        INNER JOIN produits
+        ON liste_commande.id_produit = produits.id
+        WHERE client_commande.id_commande = :id_commande";  
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id_commande' => $id_commande
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }

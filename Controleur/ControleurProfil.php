@@ -1,17 +1,53 @@
 <?php
-require_once'Controleur.php';
+require_once('Controleur.php');
 
 class ControleurProfil extends Controleur
 {
+	protected $panier;
+
 	public function route_profil()
 	{
+		//Ici on va récupérer les commandes du client
+		$id_utilisateur = $_SESSION['user']['id'];
+		// $commandesPasse = $this->panier->historiqueCommandes($id_utilisateur);
+		$recupListId = $this->panier->listIdCommandes($id_utilisateur);
+
+		$poposh = [];
+
+		for($i=0; $i<count($recupListId); $i++)
+		{
+			// echo'<pre>';
+			// print_r($recupListId[$i]['id_commande']);
+			// echo'<pre>';
+			$recupComm[$i] = $this->panier->historiqueCommandes($recupListId[$i]['id_commande']);
+
+			$poposh[] = $recupComm[$i];
+
+			//  echo'<pre>';
+			//  print_r($recupComm[$i]);
+			//  echo'<pre>';
+
+
+		}
+
+		echo'<pre>';
+		print_r($poposh);
+		echo'<pre>';
+
+		// $commandesPasse = $recupListId[0]['id_commande'];
+
+		//  echo'<pre>';
+		//  var_dump($commandesPasse);
+		//  echo'<pre>';
+
 		$error = [
 			'empty' => '', 
 			'email' => '',                                                     
   			'login' => '',
   			'password' => ''
 			];
-
+		
+		//Gestion du formulaire
 		if(isset($_POST['submit']))
 		{
 			//si vide
@@ -60,13 +96,8 @@ class ControleurProfil extends Controleur
 				$_SESSION['user']['password'] = $password;
 
 			}
-
-
-
-
-
-
 		}
-require 'Vue/vueProfil.php';
+	
+		require 'Vue/vueProfil.php';
 	}
 }

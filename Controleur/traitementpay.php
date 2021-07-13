@@ -11,7 +11,7 @@ if(isset($_POST['paiement']))
     $connexion = new PDO('mysql:host=localhost;dbname=boutique;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 	//On récupère les données de facturation/livraison 
-	$nom = htmlspecialchars($_POST['nom']) ;
+	$nom = htmlspecialchars($_POST['nom']);
 	$prenom = htmlspecialchars($_POST['prenom']) ;
 	$telephone = htmlspecialchars($_POST['telephone']) ;
 	$email = htmlspecialchars($_POST['email']) ;
@@ -29,7 +29,7 @@ if(isset($_POST['paiement']))
 
 	/////////////
 	$sql ="UPDATE liste_commande 
-	SET id_commande = '$idCommande'
+	SET id_commande = '$idCommande', statut = 1
 	WHERE id_utilisateur= {$idClient}
 	AND id_commande IS NULL";
 	
