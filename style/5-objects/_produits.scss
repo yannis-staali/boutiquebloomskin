@@ -167,7 +167,7 @@
 .produits_filtres--supprimer {
     margin-bottom: 1rem;
     // border: 1px solid black;
-    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    box-shadow: 0 8px 6px -6px #ccc,  8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
     border-radius: 10px;
     margin-left: 1rem;
     text-align: center;
@@ -208,7 +208,9 @@
     max-width: 400px;
     // height: 660px;
     // border: 5px solid rgb(0, 0, 0);
-    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    // box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    box-shadow: 0 8px 6px -6px #ccc,  8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
+
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 10px;

@@ -145,4 +145,17 @@ public function selectProductWhereRegions($id_region){
 		$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $products;
 	}
+
+	public function searchProduct($search)
+	{
+		$sql = "SELECT produits.id,produits.nom,produits.description,produits.prix,produits.image_url,produits.stock,categories.nom_categorie
+		FROM produits 
+		INNER JOIN categories ON produits.id_categorie = categories.id
+		WHERE produits.nom LIKE '{$search}%'";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		while($allproducts = $stmt->fetchAll(PDO::FETCH_ASSOC)){
+			return $allproducts;
+			}
+		}
 }

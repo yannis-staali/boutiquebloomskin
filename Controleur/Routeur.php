@@ -8,6 +8,7 @@ require_once'Controleur/ControleurAdmin.php';
 require_once'Controleur/ControleurAdminuser.php';
 require_once'Controleur/ControleurAdminproduits.php';
 require_once'Controleur/ControleurAdmincategories.php';
+require_once'Controleur/ControleurAdminCommandes.php';
 require_once'Controleur/ControleurProduct.php';
 require_once'Controleur/ControleurCheckout.php';
 require_once'Controleur/ControleurPaiement.php';
@@ -63,10 +64,16 @@ class Routeur
 					$admincategories = new ControleurAdminCategories();
 					$admincategories->route_adminCategories();
 				}
+
 			if($_GET['page'] == 'adminregions')
 				{
 					$adminregions = new ControleurAdminRegions();
 					$adminregions->route_adminRegions();
+				}
+			if($_GET['page'] == 'admincommandes')
+				{
+					$adminregions = new ControleurAdminCommandes();
+					$adminregions->route_adminCommandes();
 				}
 			if($_GET['page'] == 'produits')
 				{

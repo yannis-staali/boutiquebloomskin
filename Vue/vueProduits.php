@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 
@@ -19,6 +18,8 @@
 			<div class="produits_container_main">
 				
 			<!-- ICI AFFICHAGE VEUILLEZ VOUS INSCRIRE -->
+
+		
 			<?php 
 			if(!isset($_SESSION['user']))
 			{
@@ -94,13 +95,22 @@
 			
 				<!-- Ici bouton pour effacer les filtres -->
 				<?php
-					if(isset($_GET['categories']) || isset($_GET['regions']) || isset($_GET['both']))
+					if(isset($_GET['categories']) || isset($_GET['regions']) || isset($_GET['both']) || isset($_POST['search']))
 					echo"
 					<div class='produits_filtres--supprimer'>
 						<a href='index.php?page=produits'><i class='far fa-times-circle'></i></a>
 					</div>";	
 				?>
-			</div>		
+			</div>	
+
+			<div class='container_search_bare'>
+				<form action="" method="POST">
+					<label for="sarch_launch">Recherche</label>
+					<input id="sarch_launch" class="search_bare_input" type="text" name="search" >
+					<button class="search_button" type="submit">Recherche</button>
+				</form>
+			</div>
+
 						
 			<!-- /// ICI AFFICHAGE DES PRODUITS  /////////////////////////////////////////////////// -->
 			<div class="produits_liste">

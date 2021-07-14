@@ -589,7 +589,7 @@ button {
 
 .produits_filtres--supprimer {
   margin-bottom: 1rem;
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
   border-radius: 10px;
   margin-left: 1rem;
   text-align: center;
@@ -621,7 +621,7 @@ button {
   min-height: 650px;
   max-height: 700px;
   max-width: 400px;
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -712,7 +712,7 @@ Panier
 */
 .produits_panier_success {
   border-radius: 1.5em;
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
   padding: 0.5em;
   font-family: "Big Shoulders Display", cursive;
   margin-bottom: 0.5rem;
@@ -726,7 +726,7 @@ Panier
 
 .panier_container {
   border-radius: 1.5em;
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
@@ -903,6 +903,30 @@ Panier
 .paiement_custom_form {
   padding-bottom: 1em;
   margin-bottom: 2em;
+}
+
+.container_search_bare {
+  border-radius: 1.5em;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
+  padding: 0.5em;
+  font-family: "Big Shoulders Display", cursive;
+  margin-bottom: 0.5rem;
+  padding: 0.5em;
+  width: fit-content;
+  max-width: 900px;
+  margin-top: 1em;
+}
+
+.search_button {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.search_bare_input {
+  margin: 0.5em;
+  border-radius: 10px;
 }
 
 .produits_panier--cookie {

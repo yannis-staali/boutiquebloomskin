@@ -8,31 +8,26 @@ class ControleurProfil extends Controleur
 	public function route_profil()
 	{
 		//Ici on va récupérer les commandes du client
-		$id_utilisateur = $_SESSION['user']['id'];
-		// $commandesPasse = $this->panier->historiqueCommandes($id_utilisateur);
-		$recupListId = $this->panier->listIdCommandes($id_utilisateur);
 
+		$id_utilisateur = $_SESSION['user']['id'];
+		//ListIdcommande permet de recupérer tous les numéros de commandes
+		$recupListId = $this->panier->listIdCommandes($id_utilisateur);
+		
 		$poposh = [];
 
 		for($i=0; $i<count($recupListId); $i++)
 		{
-			// echo'<pre>';
-			// print_r($recupListId[$i]['id_commande']);
-			// echo'<pre>';
+			//On se sert du numéro de commande pour récupérer tous les articles quelle contient
 			$recupComm[$i] = $this->panier->historiqueCommandes($recupListId[$i]['id_commande']);
 
+			//On met tout dans le tableau poposh[], qui nous permettra d'afficher les données
 			$poposh[] = $recupComm[$i];
-
-			//  echo'<pre>';
-			//  print_r($recupComm[$i]);
-			//  echo'<pre>';
-
 
 		}
 
-		echo'<pre>';
-		print_r($poposh);
-		echo'<pre>';
+		// echo'<pre>';
+		// print_r($poposh);
+		// echo'<pre>';
 
 		// $commandesPasse = $recupListId[0]['id_commande'];
 

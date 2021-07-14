@@ -1,5 +1,5 @@
 <?php
-require_once'Controleur.php';
+require_once('Controleur.php');
  
 class ControleurAdminCategories extends Controleur
 {

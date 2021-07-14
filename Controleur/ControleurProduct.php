@@ -192,6 +192,15 @@ class ControleurProduct extends Controleur
             // echo'<pre>';
         }
 
+        //barre de recherche
+        if(isset($_POST['search']))
+        {
+            $search = $_POST['search'];
+
+            $allProducts = $this->product->searchProduct($search);
+
+        }
+
 
         //SELECT ALL CATEGORIE
         $allCategories = $this->admincategories->selectAllCategories();

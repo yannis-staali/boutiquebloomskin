@@ -161,7 +161,7 @@ $stmt= $this->pdo->prepare($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
+    //recupère tous les numéros de commandes à partir de l'id du client
     public function listIdCommandes($id_utilisateur){
         $sql ="SELECT id_commande 
         FROM client_commande
@@ -172,6 +172,15 @@ $stmt= $this->pdo->prepare($sql);
         ]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    //Recupère la totalité des numéros de commande
+    public function TotallistIdCommandes(){
+        $sql ="SELECT id_commande 
+        FROM client_commande";  
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function historiqueCommandes($id_commande){
         $sql ="SELECT produits.nom, liste_commande.quantite, liste_commande.prix, liste_commande.id_commande
@@ -180,6 +189,23 @@ $stmt= $this->pdo->prepare($sql);
         ON client_commande.id_commande = liste_commande.id_commande
         INNER JOIN produits
         ON liste_commande.id_produit = produits.id
+        WHERE client_commande.id_commande = :id_commande";  
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id_commande' => $id_commande
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function historiqueCommandesAdmin($id_commande){
+        $sql ="SELECT utilisateurs.login, produits.nom, liste_commande.quantite, liste_commande.prix, liste_commande.id_commande
+        FROM client_commande
+        INNER JOIN  liste_commande
+        ON client_commande.id_commande = liste_commande.id_commande
+        INNER JOIN produits
+        ON liste_commande.id_produit = produits.id
+        INNER JOIN utilisateurs
+        ON utilisateurs.id = liste_commande.id_utilisateur
         WHERE client_commande.id_commande = :id_commande";  
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute([
