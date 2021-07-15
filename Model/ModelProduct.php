@@ -44,7 +44,7 @@ public function selectAllProducts(){
 
 /////SELECT PRODUCT VIA ID FOR UPDATE
 public function selectProduct($id){
-	$sql = "SELECT produits.id,produits.nom,produits.description,produits.prix,produits.image_url,produits.stock,categories.nom_categorie
+	$sql = "SELECT produits.id_categorie, produits.id, produits.nom, produits.description, produits.prix, produits.image_url, produits.stock, categories.nom_categorie
 	FROM produits
 	INNER JOIN categories ON produits.id_categorie = categories.id
 	WHERE produits.id = $id

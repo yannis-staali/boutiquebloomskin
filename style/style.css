@@ -367,7 +367,7 @@ button {
   max-width: 700px;
   margin: 2rem;
   border-radius: 1.5em;
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
 }
 @media screen and (max-width: 900px) {
   .formpage_main_form {
@@ -495,7 +495,8 @@ button {
 }
 
 .produits_filtres--types {
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
   border-radius: 10px;
   font-size: 1.5rem;
   cursor: pointer;
@@ -541,7 +542,6 @@ button {
 }
 
 .produits_filtres--regions {
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
   border-radius: 10px;
   font-size: 1.5rem;
   cursor: pointer;
@@ -693,7 +693,7 @@ button {
 }
 .produits_article_form button {
   background-color: black;
-  box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+  box-shadow: 0 8px 6px -6px #ccc, 8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
   color: white;
   border: none;
   border-radius: 1.5em;
@@ -927,6 +927,30 @@ Panier
 .search_bare_input {
   margin: 0.5em;
   border-radius: 10px;
+}
+
+.form2_product {
+  overflow-x: auto;
+  min-height: 100vh;
+}
+
+.table_product_update td {
+  border: 1px solid black;
+}
+
+.table_product_update {
+  border-collapse: collapse;
+}
+
+.img_src_display {
+  object-fit: contain;
+  width: 100px;
+  max-width: 200px;
+}
+
+.table_product_update {
+  background-color: #f8b8ca;
+  margin: 0 auto;
 }
 
 .produits_panier--cookie {

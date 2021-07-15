@@ -13,15 +13,16 @@
 
 	<!-- Main -->
 	<main> 
-		<h1 class="title_admin_produit">Administrer vos produits</h1>
+		<h1 class="title_admin_produit">Administration des produits</h1>
         <?= $success['update'].$success['delete'].$success['product'].$error['empty'].$error['img'] ?><br>
-		<section>
+		
+        <section>
         <?php
     //AFFICHAGE DE TOUT LES PRODUITS 
     if(isset($allProducts)):?>
     <h1 class="back_button"><a href="index.php?page=admin">RETOUR</a></h1>
 
-    <div style="overflow-x:auto">
+    <div class="form1_product" style="overflow-x:auto">
         <table class="table_adminProduit">
         <thead>
             <tr>
@@ -61,7 +62,8 @@
                 //FORMULAIRE UPDATE PRODUCT SI ADMIN APPUIS SUR UPDATE*
         if(isset($productUpdates)):?>
             
-            <table>
+        <div class="form2_product">
+            <table class="table_product_update">
             <thead>
                 <tr>
                 <td>id</td>
@@ -74,30 +76,32 @@
                 </tr>
             </thead>
             <tbody>
-        <tr>
+            <tr>
             <form action="index.php?page=adminproduits" method="POST" enctype="multipart/form-data">
             <?php
                     echo "<td><input type='text' name='id' value='".$productUpdates['id']."'></td>
                 <td><input type='text' name='nom' value='".$productUpdates['nom']."'></td>
                 <td><input type='text' name='description' value='".$productUpdates['description']."'></td>
                 <td><input type='text' name='prix' value='".$productUpdates['prix']."'></td>
-                <td><img  src='style/images/image_product/".$productUpdates['image_url']."'><input type='file' name='image'></td>
+                <td><img class='img_src_display' src='style/images/image_product/".$productUpdates['image_url']."'></td>
                 <td><input type='text' name='stock' value='".$productUpdates['stock']."'></td>
                 <td><input type='text' name='categorie' value='".$productUpdates['id_categorie']."'></td>
                 <td><input type='submit' name='productUpdate'</td>
                 </tr>";
             ?>
             </tbody>
-        </table>
-   
+            </table>
+        </div>
     <?php
     endif;
+    
     if(isset($_POST['deleteProduct'])){
         echo $accepte;
     }
-    //FORMULAIRE DE PRODUITS S'AFFICHE SI ADMIN AAPUUIE SUR UPDATE
+    
     if(isset($product) && isset($allProducts)):?>
 
+    <div class="form3_product">
         <h1 class="title_admin_produit">Ajouter un produit</h1>
 
         <div class="container_add_product">
@@ -127,7 +131,10 @@
        ?>
         </tbody>
         </table>
+    </div>
+
         </section>
+
 	</main>    
 
 	<!--Inclusion du Footer -->

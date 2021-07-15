@@ -24,7 +24,8 @@
     // margin-bottom: 200px;
     // border: 0.1em solid black;
     border-radius: 1.5em;
-    box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    // box-shadow: 0.1em 0.1em 0.5em 0.01em #000000ae;
+    box-shadow: 0 8px 6px -6px #ccc,  8px 0px 6px -6px #ccc, 0px -2px 6px -6px #ccc;
 
     @media screen and (max-width: 900px) {
        flex-direction: column;

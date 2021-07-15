@@ -1,0 +1,25 @@
+.form2_product {
+    // background-color: rgb(197, 152, 85);
+    overflow-x:auto;
+    min-height: 100vh;
+  
+}
+
+.table_product_update td{
+    border: 1px solid black;
+}
+
+.table_product_update {
+    border-collapse: collapse;
+}
+
+.img_src_display {
+    object-fit: contain;
+    width: 100px;
+    max-width: 200px;
+}
+
+.table_product_update {
+    background-color: $color2;
+    margin: 0 auto;
+}

@@ -47,7 +47,7 @@
 					}	
 					?>  
 
-				</div> <!-- fin container_historique -->
+	</div> <!-- fin container_historique -->
 
 	</main>    
 
@@ -91,6 +91,7 @@
 	display: flex;
 	flex-direction:column;
 	align-items: center;
+	overflow-x:auto;
 }
 .title_historique_top {
 	text-align:center;

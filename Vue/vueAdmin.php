@@ -19,6 +19,7 @@
 				<a href="index.php?page=adminuser">Gerer les utilisateurs</a><br>
 				<a href="index.php?page=adminproduits">Gerer les Produits</a><br>
 				<a href="index.php?page=admincategories">Gerer les categories</a><br>
+				<a href="index.php?page=admincommandes">Historique des commandes</a><br>
 			</div>
 		</div>
 	</main>    

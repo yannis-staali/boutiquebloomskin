@@ -27,10 +27,16 @@ public function selectAllProduct(){
 	}
 }
 //UPDATE PRODUCT
-public function updateProduct($id,$nom,$description,$prix,$image_url,$stock,$id_categorie){
-	$sql = "UPDATE produits SET nom=:nom, description=:description, prix=:prix, image_url=:image_url, stock=:stock,id_categorie=:id_categorie";
+public function updateProduct($id, $nom, $description, $prix, $stock, $id_categorie){
+	$sql = "UPDATE produits 
+			SET nom=:nom, description=:description, prix=:prix, stock=:stock,id_categorie=:id_categorie
+			WHERE id = '$id' ";
 	$stmt= $this->pdo->prepare($sql);
-	$stmt->execute(compact('id','nom','description','prix','image_url','stock','id_categorie',));
+	$stmt->execute(array('nom' => $nom,
+	'description' => $description,
+	'prix' => $prix,
+	'stock' => $stock,
+	'id_categorie' => $id_categorie));
 }
 //DELETE PRODUCT
 public function deleteProduct($image_url){
