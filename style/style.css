@@ -152,6 +152,18 @@ button {
     background: #f8b8ca;
     list-style-type: none;
   }
+  .header_nav.open .header_link a {
+    margin-left: 0px;
+  }
+  .header_nav.open .header_link a i {
+    margin-bottom: 1em;
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 899px) {
+  .header_link {
+    text-align: center;
+  }
 }
 .header_link a {
   display: block;
@@ -161,7 +173,6 @@ button {
 .header_link a:hover {
   color: #DA402B;
 }
-
 @media screen and (min-width: 900px) {
   .header_nav {
     display: flex;
@@ -175,7 +186,10 @@ button {
     align-self: center;
   }
   .header_link a {
-    display: block !important;
+    display: block;
+  }
+  .header_link a i {
+    font-size: 2rem;
   }
 
   .menu-btn {

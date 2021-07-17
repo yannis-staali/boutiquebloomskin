@@ -129,13 +129,17 @@
         overflow: hidden;
         background: $color2;
         list-style-type: none;
-    
-        .open {
-            // visibility: visible;
-            // display: flex;
-            // flex-direction: column;
-            // transform: translateY(0);
-           
+
+        .header_link{
+
+            a {
+                margin-left: 0px;
+
+                i {
+                    margin-bottom: 1em;
+                    font-size: 3rem;
+                }
+            }
         }
     }
 
@@ -143,15 +147,30 @@
 
 .header_link {
 
+
+    @media screen and (max-width: 899px){
+       text-align: center;
+    }
+
     a {
         display: block;
+
+
         margin-left: 2em;
         text-decoration: none;
 
         &:hover{
             color: $colormain;
         }
+
+       i {
+      
+
+           
+       }
     }
+
+    
 }
 
 @media screen and (min-width: 900px) {
@@ -170,7 +189,12 @@
        align-self: center;
 
         a {
-            display: block !important;
+            // display: block !important;
+            display: block ;
+
+            i {
+                font-size: 2rem;
+            }
         }
         
     }
