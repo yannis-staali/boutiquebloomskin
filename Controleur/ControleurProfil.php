@@ -14,6 +14,8 @@ class ControleurProfil extends Controleur
 		$recupListId = $this->panier->listIdCommandes($id_utilisateur);
 		
 		$poposh = [];
+		$prixTotal = [];
+		$dateCom = [];
 
 		for($i=0; $i<count($recupListId); $i++)
 		{
@@ -22,12 +24,10 @@ class ControleurProfil extends Controleur
 
 			//On met tout dans le tableau poposh[], qui nous permettra d'afficher les données
 			$poposh[] = $recupComm[$i];
-
+			$prixTotal[] = $recupListId[$i]['prix_total'];
+			$dateCom[] = $recupListId[$i]['date'];
 		}
 
-		// echo'<pre>';
-		// print_r($poposh);
-		// echo'<pre>';
 
 		// $commandesPasse = $recupListId[0]['id_commande'];
 

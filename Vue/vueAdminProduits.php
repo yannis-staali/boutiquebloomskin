@@ -14,7 +14,6 @@
 	<!-- Main -->
 	<main> 
 		<h1 class="title_admin_produit">Administration des produits</h1>
-        <?= $success['update'].$success['delete'].$success['product'].$error['empty'].$error['img'] ?><br>
 		
         <section>
         <?php
@@ -52,7 +51,7 @@
             <td><form action='index.php?page=adminproduits' method='POST'><button class='button2' name='deleteProduct' value='".$allProducts[$i]['image_url']."'>Delete</button></form></td>
             </tr>";
                 }
-        // }
+
         
         echo"</tbody></table>";
     endif; 
@@ -135,6 +134,9 @@
 
         </section>
 
+        <div class="messages_admin_add">
+            <?= $success['update'].$success['delete'].$success['product'].$error['empty'].$error['img'] ?><br>
+        </div>
 	</main>    
 
 	<!--Inclusion du Footer -->

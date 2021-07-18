@@ -12,6 +12,7 @@ require_once'Controleur/ControleurAdminCommandes.php';
 require_once'Controleur/ControleurProduct.php';
 require_once'Controleur/ControleurCheckout.php';
 require_once'Controleur/ControleurPaiement.php';
+require_once'Controleur/ControleurSuccessPaiement.php';
 
 
 
@@ -84,6 +85,11 @@ class Routeur
 			{
 				$checkout = new ControleurCheckout();
 				$checkout->route_checkout();
+			}
+			if($_GET['page'] == 'thanks')
+			{
+				$checkout = new ControleurSuccessPaiement();
+				$checkout->route_succesPaiement();
 			}
 			if($_GET['page'] == 'faq')
 			{

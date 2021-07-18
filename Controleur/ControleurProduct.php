@@ -57,8 +57,8 @@ class ControleurProduct extends Controleur
                             $quantite = 1;
                             $statut = 0;
                             $this->panier->insertPanier($id_produit, $id_utilisateur, $quantite, $prix_produit);
-                            $success = 'Adding new product';
-                            header("refresh: 2;");
+                            $success = 'Ajout produit';
+                            header("refresh: 0.3;");
                         }
                         //si le panier existe deja
                         else 
@@ -72,8 +72,8 @@ class ControleurProduct extends Controleur
                             $quantite = 1;
                             $statut = 0;
                             $this->panier->insertPanier($id_produit, $id_utilisateur, $quantite, $prix_produit);
-                            $success = 'Adding new product';
-                            header("refresh: 2;");
+                            $success = 'Ajout produit';
+                            header("refresh: 0.3;");
                         }
                         //Sinon on incrémente la quantité et le prix
                         else 
@@ -91,7 +91,7 @@ class ControleurProduct extends Controleur
 
                             $this->panier->updateQuantite($id_produitExist, $id_produit, $id_utilisateur, $update_price);
                             $success = 'Adding product';
-                            header("refresh: 2;");
+                            header("refresh: 0.3;");
                         }
                     }
                 }
@@ -106,12 +106,12 @@ class ControleurProduct extends Controleur
         }
         //MSG SUCEESS DELETE
         if (isset($_GET['success'])) {
-            $success['deleteProduit'] = '<span>Votre Produit a était supprimer du panier</span>';
-            header("Refresh:2; url=index.php?page=produits");
+            $success['deleteProduit'] = '<span>Suppression</span>';
+            header("Refresh:0.3; url=index.php?page=produits");
         }
         if (isset($_GET['successUpdate'])) {
-            $success['updateQuantite'] = '<span>Votre Produit a était rajoutez</span>';
-            header("Refresh:2; url=index.php?page=produits");
+            $success['updateQuantite'] = '<span>Ajout produit</span>';
+            header("Refresh:0.3; url=index.php?page=produits");
         }
 
         //ACTION CLICK BOUTTON PLUS (+)
@@ -130,8 +130,8 @@ class ControleurProduct extends Controleur
             $new_price = $price + $price_unit;
 
             $this->panier->updateQuantite($infoProduits[1], $infoProduits[0], $_SESSION['user']['id'], $new_price );
-            $success = "Adding product";
-            header("Refresh:2; url=index.php?page=produits");
+            $success = "Ajout produit";
+            header("Refresh:0.3; url=index.php?page=produits");
         }
         //ACTION CLICK BOUTTON MOINS (-)
         if (isset($_GET['deleteOne'])) 
@@ -143,8 +143,8 @@ class ControleurProduct extends Controleur
             if($infoProduits[1] == 1)
             {
                 $this->panier->deletePanier($_SESSION['user']['id'], $infoProduits[0]);
-                $success = "Deleting product";
-                header("Refresh:2; url=index.php?page=produits");
+                $success = "Suppression";
+                header("Refresh:0.3; url=index.php?page=produits");
             }
             //on decremente la quantité
             $infoProduits[1]--;
@@ -157,15 +157,15 @@ class ControleurProduct extends Controleur
             $new_price = $price - $price_unit;
 
             $this->panier->updateQuantite($infoProduits[1], $infoProduits[0], $_SESSION['user']['id'], $new_price);
-            $success = "Deleting product";
-            header("Refresh:2; url=index.php?page=produits");
+            $success = "Suppression";
+            header("Refresh:0.3; url=index.php?page=produits");
         }
         //ACTION CLICK SUR LA CORBEILLE
         if (isset($_GET['deletePanier'])) {
             $id_produit = intval($_GET['deletePanier']);
             $this->panier->deletePanier($_SESSION['user']['id'], $id_produit);
-            $success = "Deleting product";
-            header("Refresh:2; url=index.php?page=produits");
+            $success = "Suppression";
+            header("Refresh:0.3; url=index.php?page=produits");
         }
 
    

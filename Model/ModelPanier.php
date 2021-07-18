@@ -163,7 +163,7 @@ $stmt= $this->pdo->prepare($sql);
 
     //recupère tous les numéros de commandes à partir de l'id du client
     public function listIdCommandes($id_utilisateur){
-        $sql ="SELECT id_commande 
+        $sql ="SELECT id_commande, prix_total, DATE_FORMAT(date, 'Le : %d/%m/%Y à %Hh%imin') AS date
         FROM client_commande
         WHERE id_utilisateur = :id_utilisateur";  
         $stmt= $this->pdo->prepare($sql);
@@ -175,7 +175,7 @@ $stmt= $this->pdo->prepare($sql);
     
     //Recupère la totalité des numéros de commande
     public function TotallistIdCommandes(){
-        $sql ="SELECT id_commande 
+        $sql ="SELECT id_commande, prix_total, DATE_FORMAT(date, 'Le : %d/%m/%Y à %Hh%imin') AS date
         FROM client_commande";  
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute();
@@ -212,6 +212,18 @@ $stmt= $this->pdo->prepare($sql);
             'id_commande' => $id_commande
         ]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    //SI UTILISATEUR A DEJA UN PANIER
+    public function checkQuantite($id_produit):int
+    {   
+    $stmt = $this->pdo->prepare("SELECT stock FROM produits WHERE id=:id_produit");
+    $stmt->execute(['id_produit' => $id_produit]);
+    if($stmt->rowCount() > 0){
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['stock'];
+    } else 
+        return false ;
     }
     
 }

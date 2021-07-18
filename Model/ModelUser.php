@@ -5,7 +5,7 @@ class user extends Model
 	protected $pdo;
 //INSERT USER inscription
 public function exists($login){
-	$stmt = $this->pdo->prepare("SELECT login FROM utilisateurs WHERE login = :login ;");
+	$stmt = $this->pdo->prepare("SELECT login FROM utilisateurs WHERE login = :login");
     $stmt->execute(['login' => $login]);
     if($stmt->rowCount() > 0){
         return -1;

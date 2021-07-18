@@ -23,7 +23,7 @@ class ControleurInscription extends Controleur
 			//pregmatch pour login
 			$pattern = "/^\S*[a-z,A-Z,0-9]{4,}\S*/";
 			if(!preg_match($pattern, $_POST['login'])){
-				$error['login'] = "<span>commence bien au début, 4 caractéres minimum, majuscule,minuscules,chiffres autorisées</span>";
+				$error['login'] = "<span>4 caractéres minimum</span>";
 			}
 			//si il existe en bdd
 			if($this->user->exists($_POST['login'])===-1)
@@ -41,7 +41,7 @@ class ControleurInscription extends Controleur
 			$password = htmlspecialchars($_POST['password2']);
 			//pregmatch pour password
 			if(!preg_match($pattern, $password)){
-				$error['password'] = "<span>commence bien au début, 4 caractéres minimum, majuscule,minuscules,chiffres autorisées</span>";
+				$error['password'] = "<span>4 caractéres minimum</span>";
 			}
 			//on définit les variables rentrée 
 			$login = htmlspecialchars($_POST['login']);

@@ -53,6 +53,9 @@ var nomClient = document.getElementById('cardholder-name').value;
             // The payment has been processed!
             if (result.paymentIntent.status === 'succeeded') {
 
+              console.log(result);
+              console.log(result.paymentIntent.amount);
+              
                 //on recupere les valeurs 
                 var nom = document.getElementById('nom').value;
                 var prenom = document.getElementById('prenom').value;
@@ -67,6 +70,8 @@ var nomClient = document.getElementById('cardholder-name').value;
 
                 var idCommande = result.paymentIntent.id;
 
+                var totalCout = result.paymentIntent.amount / 100 ;
+
                 //on lance l'ajax pour envoyer les valeurs
                 var xhr = new XMLHttpRequest();
 
@@ -74,13 +79,13 @@ var nomClient = document.getElementById('cardholder-name').value;
                     //console.log(this.responseText);
                    // console.log(result);
 
-                    window.location = "index.php?page=accueil";
+                    window.location = "index.php?page=thanks";
                 }
                 
                 xhr.open("POST", "Controleur/traitementpay.php", true);
                 // xhr.open("POST", "Controleur/ControleurPaiement.php", true);
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhr.send("paiement=ok&nom="+nom+"&prenom="+prenom+"&telephone="+telephone+"&email="+email+"&adresse="+adresse+"&ville="+ville+"&departement="+departement+"&codepostal="+codepostal+"&pays="+pays+"&idCommande="+idCommande+"&idUser="+idclient);
+                xhr.send("paiement=ok&nom="+nom+"&prenom="+prenom+"&telephone="+telephone+"&email="+email+"&adresse="+adresse+"&ville="+ville+"&departement="+departement+"&codepostal="+codepostal+"&pays="+pays+"&idCommande="+idCommande+"&idUser="+idclient+"&totalCout="+totalCout);
                 // xhr.send("paiement=ok&nom="+nom+"&prenom="+prenom+"&telephone="+telephone+"&email="+email+"&adresse="+adresse+"&ville="+ville+"&departement="+departement+"&codepostal="+codepostal+"&pays="+pays);
 
                 // console.log(nom);

@@ -59,6 +59,8 @@
 						echo "<div class='container_each_commande'>";//debut div commande
 								echo "<div class='container_titre_each_commande'>";
 									echo "<h1>Commande n° : ".$recupListId[$i]['id_commande']."</h1>";
+									echo "<h3>".$dateCom[$i]."</h3>";
+									echo "<h3> Coût total : ".$prixTotal[$i]." €</h3>";
 								echo "</div>";
 
 								echo "<div class='container_content_each_commande'>";

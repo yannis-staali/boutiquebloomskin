@@ -47,11 +47,13 @@
 					echo "</div>";
 				}
 				?>
-						
+						<?= $error['update'] ?>
 			</div>
+					
+
 				<section class="passage_paiement">
 					<form class="form_paiement" action="index.php?page=paiement" method="POST">
-						<label>Passer au paiement</label>
+						<label class="label_payer">Passer au paiement</label>
 							<button name='panier_confirmer' type="submit" value=''>Payer</button>                
 					</form>
 				</section>
@@ -82,4 +84,5 @@
 .redcust {
 	color:red;
 }
+
 </style>

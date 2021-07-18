@@ -20,3 +20,19 @@
     display: flex;
     flex-direction: column;
 }
+.messages_admin_add {
+    text-align: center;
+}
+.container_delete_ask {
+    display: flex;
+    flex-direction: column;
+   
+    h3 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    form {
+        margin: auto;
+    }
+}

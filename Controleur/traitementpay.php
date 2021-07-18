@@ -23,9 +23,13 @@ if(isset($_POST['paiement']))
 
 	$idCommande = $_POST['idCommande'] ;
 
+	$coutTotal = htmlspecialchars($_POST['totalCout']) ;
+
+	$date = date('Y-m-d H:i:s');
+
 	//On insère les informations dans la table client commande (qui liste les commandes confirmées)
-	$query = $connexion->prepare("INSERT INTO client_commande (nom, prenom, telephone, email, addresse, ville, departement, code_postal, pays, id_utilisateur, id_commande) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->execute(array($nom, $prenom, $telephone, $email, $addresse, $ville, $departement, $codepostal, $pays, $idClient, $idCommande));
+	$query = $connexion->prepare("INSERT INTO client_commande (nom, prenom, telephone, email, addresse, ville, departement, code_postal, pays, id_utilisateur, id_commande, prix_total, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $query->execute(array($nom, $prenom, $telephone, $email, $addresse, $ville, $departement, $codepostal, $pays, $idClient, $idCommande, $coutTotal, $date));
 
 	/////////////
 	$sql ="UPDATE liste_commande 
